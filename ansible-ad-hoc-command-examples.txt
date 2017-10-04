@@ -1,0 +1,20 @@
+ansible masters:minions -m ping
+ansible masters:minions -a "hostname"
+ansible masters:minions -a "python --version"
+
+ansible masters:minions -a "echo {{ ansible_all_ipv4_addresses | last }}"
+
+ansible minions -a "sudo docker pull quay.io/calico/node:v1.1.3"
+ansible minions -a "sudo docker pull quay.io/calico/cni:v1.8.0"
+ansible minions -a "sudo docker pull quay.io/calico/kube-policy-controller:v0.5.4"
+ansible minions -a "sudo docker pull jonlangemak/net_tools"
+ansible minions -a "sudo docker pull gcr.io/google_containers/kubedns-amd64:1.8"
+
+
+
+
+# http://docs.ansible.com/ansible/latest/debug_module.html
+ansible -m debug -a 'var=hostvars' localhost
+
+# http://docs.ansible.com/ansible/latest/setup_module.html
+ansible all -m setup --tree /tmp/facts

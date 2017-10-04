@@ -1,7 +1,8 @@
 ---
 #Define the user you which to use for provisioning on the hosts. It is 
 #implied that this user will exist on all nodes
-setup_user: user
+#setup_user: user
+setup_user: vagrant
 
 #Define all of your hosts here.  The FQDN and IP address are important to
 #get right since they will be defined in the certificates kubernetes uses
@@ -28,6 +29,10 @@ host_roles:
       fqdn: ubuntu-5.interubernet.local
       ipaddress: 192.168.50.75
 
+kubernetes_version: v1.7.7
+#kubernetes_version: v1.7.0
+#kubernetes_version: v1.6.11
+
 #Most of these settings are not incredibly important for your first configuration
 #however make sure that the two CIDRs defined below are unique to your network as
 #the cluster_node_cidr will need to be routed on your L3 gateway.  Also make sure
@@ -36,6 +41,8 @@ cluster_info:
   cluster_name: my_cluster
   cluster_domain: k8s.cluster.local
   service_network_cidr: 10.11.12.0/24
+# cluster_node_cidr is removed as part of this change:
+# https://github.com/jonlangemak/ansible_kubernetes/commit/ef1e44812ddcb8789b045a869040589759e0263b#diff-b63119da730344b345cdc8f62a4711e9
   dns_service_ip: 10.11.12.254
 
 #Again - not super critical to change this stuff but you can

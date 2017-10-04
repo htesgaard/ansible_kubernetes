@@ -1,0 +1,7 @@
+---
+- hosts:
+    - masters
+    - minions
+
+  roles:
+    - kubernetes
