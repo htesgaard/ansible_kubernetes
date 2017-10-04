@@ -4,3 +4,8 @@ readme.ht.txt
 .gitignore
 
 
+ansible_inventory
+ubuntu-1.hosts
+ubuntu-2.hosts
+ubuntu-3.hosts
+ubuntu-4.hosts

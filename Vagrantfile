@@ -331,16 +331,12 @@ Vagrant.configure("2") do |config|
         config.vm.provision "shell", privileged: false, inline: "cp ~/.bashrc ~/.bashrc.orig"
         config.vm.provision "shell", privileged: false, inline: 'echo "source <(kubectl completion bash)" >> ~/.bashrc'
 
-        #config.vm.provision "shell", privileged: false, inline: "ansible-playbook ~/k8s_install.yaml
+        config.vm.provision "shell", privileged: false, inline: "ansible-playbook ~/k8s_install.yaml"
 
 
 #        kubectl apply -f /var/lib/kubernetes/pod_defs/calico.yaml
 #        kubectl apply -f /var/lib/kubernetes/pod_defs/kubedns.yaml
 #        kubectl apply -f /var/lib/kubernetes/pod_defs/kubedns-svc.yaml
-
-
-
-        #config.vm.provision "shell", privileged: false, inline: "ansible-playbook ~/k8s_install.yaml"
 
         #config.vm.provision "shell", inline: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
         #config.vm.provision "shell", inline: 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"'
